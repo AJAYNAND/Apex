@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Quiz App</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f1f5f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .quiz-container {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 90%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    #answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .answer-btn {
+      padding: 12px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .answer-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .selected {
+      background-color: #ffc107 !important;
+      color: #000;
+    }
+
+    #next-btn {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: none;
+    }
+
+    #next-btn:hover {
+      background-color: #218838;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      .quiz-container {
+        padding: 20px;
+      }
+
+      .question {
+        font-size: 1rem;
+      }
+
+      .answer-btn {
+        font-size: 0.95rem;
+      }
+
+      #next-btn {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container" id="quiz-container">
+    <h2>Simple Quiz</h2>
+    <div class="question" id="question"></div>
+    <div id="answers"></div>
+    <button id="next-btn" onclick="nextQuestion()">Next</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const quiz = [
+      {
+        question: "What is 2 + 2?",
+        options: ["3", "4", "5", "6"],
+        answer: "4"
+      },
+      {
+        question: "What is the capital of France?",
+        options: ["London", "Paris", "Berlin", "Rome"],
+        answer: "Paris"
+      },
+      {
+        question: "What color is the sky?",
+        options: ["Red", "Blue", "Green", "Yellow"],
+        answer: "Blue"
+      }
+    ];
+
+    let current = 0;
+    let score = 0;
+    let selectedAnswer = null;
+
+    const questionEl = document.getElementById("question");
+    const answersEl = document.getElementById("answers");
+    const resultEl = document.getElementById("result");
+    const quizContainer = document.getElementById("quiz-container");
+    const nextBtn = document.getElementById("next-btn");
+
+    function loadQuestion() {
+      const q = quiz[current];
+      questionEl.innerText = `Q${current + 1}: ${q.question}`;
+      answersEl.innerHTML = "";
+      selectedAnswer = null;
+      nextBtn.style.display = "none";
+
+      q.options.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.className = "answer-btn";
+        btn.innerText = opt;
+        btn.onclick = () => selectAnswer(btn, opt);
+        answersEl.appendChild(btn);
+      });
+    }
+
+    function selectAnswer(button, option) {
+      const allButtons = document.querySelectorAll(".answer-btn");
+      allButtons.forEach(btn => btn.classList.remove("selected"));
+      button.classList.add("selected");
+      selectedAnswer = option;
+      nextBtn.style.display = "block";
+    }
+
+    function nextQuestion() {
+      if (selectedAnswer === quiz[current].answer) {
+        score++;
+      }
+
+      current++;
+      if (current < quiz.length) {
+        loadQuestion();
+      } else {
+        quizContainer.innerHTML = `
+          <h2>Quiz Completed!</h2>
+          <p id="result">You scored <strong>${score}</strong> out of <strong>${quiz.length}</strong>.</p>
+        `;
+      }
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>
