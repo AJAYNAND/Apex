@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Education Details - Ajaynand</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', serif;
+      background: url('images/avengers-bg.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 50px 20px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      border-bottom: 2px solid white;
+      display: inline-block;
+    }
+
+    .section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .text-content {
+      flex: 1 1 60%;
+    }
+
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #c1aaff;
+    }
+
+    .details p {
+      font-size: 18px;
+      margin: 6px 0;
+    }
+
+    .details span {
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .section img {
+      flex: 1 1 30%;
+      max-width: 120px;
+      height: auto;
+      border-radius: 10px;
+      margin-left: 20px;
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-top: 30px;
+      font-size: 18px;
+      color: #c1aaff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 2px solid #c1aaff;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    a.back-link:hover {
+      background-color: #c1aaff;
+      color: #000;
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      .details p {
+        font-size: 16px;
+      }
+
+      .section h2 {
+        font-size: 22px;
+      }
+
+      .section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .section img {
+        margin: 15px 0 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay">
+    <center><h1>EDUCATION DETAILS</h1></center>
+
+    <div class="section">
+      <div class="text-content">
+        <h2>School</h2>
+        <div class="details">
+          <p><span>School Name:</span> Sri KrishnaVeni High School</p>
+          <p><span>Board:</span> SSC</p>
+          <p><span>CGPA:</span> 10.0</p>
+        </div>
+      </div>
+      <img src="https://yt3.ggpht.com/ytc/AMLnZu_Gyu_BKsiBqhTyONBrnrI65LaXdgLhBIp_-1WG=s900-c-k-c0x00ffffff-no-rj" alt="School Logo">
+    </div>
+
+    <div class="section">
+      <div class="text-content">
+        <h2>Intermediate</h2>
+        <div class="details">
+          <p><span>College Name:</span> Kakatiya Junior College</p>
+          <p><span>Board:</span> State Board</p>
+          <p><span>Percentage:</span> 96%</p>
+        </div>
+      </div>
+      <img src="https://play-lh.googleusercontent.com/_CaY_USviLkBWFYdpaahFOk4-JOMIF171_F5b46_cmCbyA6glX2ICKxmaHTi3Fmo1g" alt="College Logo">
+    </div>
+
+    <center>
+      <a href="Home.html" class="back-link">← Back to Home</a>
+    </center>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ajaynand's Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('images/avengers-bg.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .main-container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 40px auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .left-section {
+      flex: 1 1 300px;
+      background: rgba(255, 255, 255, 0.05);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .left-section img {
+      width: 220px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 50px;
+      border: 4px solid #fff;
+    }
+
+    .right-section {
+      flex: 2 1 500px;
+      padding: 30px 20px;
+    }
+
+    .right-section h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .info-table {
+      width: 100%;
+      margin: 20px 0;
+      border-collapse: collapse;
+    }
+
+    .info-table td {
+      padding: 10px 5px;
+      vertical-align: top;
+    }
+
+    .info-table td:first-child {
+      font-weight: bold;
+      width: 120px;
+    }
+
+    .intro {
+      margin: 25px 0;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .links-grid a {
+      display: block;
+      text-align: center;
+      padding: 12px 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #c1aaff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .links-grid a:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+        margin: 20px;
+      }
+
+      .left-section img {
+        width: 180px;
+        height: 220px;
+      }
+
+      .right-section {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-container">
+    <!-- Left: Profile Photo -->
+    <div class="left-section" align:"center">
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      <img src="ProfilePic.jpg" alt="Ajaynand's Photo">
+    </div>
+
+    <!-- Right: Info and Links -->
+    <div class="right-section">
+      <h1>Welcome to My Profile</h1>
+
+      <table class="info-table">
+        <tr>
+          <td>Name:</td>
+          <td>M. Ajaynand Kumar</td>
+        </tr>
+        <tr>
+          <td>Age:</td>
+          <td>20</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>
+            <a href="mailto:2311cs010436@mallareddyuniversity.ac.in" style="color: #c1aaff;">
+              2311cs010436@mallareddyuniversity.ac.in
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>Phone:</td>
+          <td>8179255456</td>
+        </tr>
+        <tr>
+          <td>LinkedIn:</td>
+          <td>
+            <a href="https://linkedin.com/in/ajaynand-mende" target="_blank" style="color: #c1aaff;">
+              linkedin.com/in/ajaynand-mende
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>GitHub:</td>
+          <td>
+            <a href="https://github.com/AJAYNAND" target="_blank" style="color: #c1aaff;">
+              github.com/AJAYNAND
+            </a>
+          </td>
+        </tr>
+      </table>
+
+      <div class="intro">
+        Hi Everyone, my name is <strong>Ajaynand</strong>. I am a B.Tech student from 
+        <strong>Malla Reddy University</strong> pursuing my 3rd year. 
+        Thanks for visiting my profile!
+      </div>
+
+      <div class="links-grid">
+        <a href="Home.html">Home</a>
+        <a href="Education.html">Education</a>
+        <a href="Professional.html">Professional</a>
+        <a href="Skills and certifications.html">Skills & Certifications</a>
+        <a href="contact .html">contact Me</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
