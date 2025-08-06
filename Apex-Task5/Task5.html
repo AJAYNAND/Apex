@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Capstone App - Dark Mode</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-mode {
+      background-color: #1e1e1e;
+      color: #f1f1f1;
+    }
+
+    aside {
+      width: 220px;
+      background: linear-gradient(135deg, #343a40, #495057);
+      color: white;
+      padding: 30px 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    .content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .toggle-btn {
+      background-color: #6c757d;
+      color: white;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background-color: #5a6268;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      flex: 1 1 300px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    body.dark-mode .card {
+      background-color: #2c2c2c;
+      color: #f1f1f1;
+      border-color: #444;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    button, .toggle-btn {
+      font-weight: 500;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    body.dark-mode input {
+      background-color: #444;
+      color: #f1f1f1;
+      border-color: #666;
+    }
+
+    footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 14px;
+      background-color: #f1f3f5;
+      margin-top: 40px;
+      border-top: 1px solid #dee2e6;
+      transition: background-color 0.3s ease;
+    }
+
+    body.dark-mode footer {
+      background-color: #2e2e2e;
+      color: #ccc;
+      border-color: #444;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      aside {
+        width: 100%;
+        text-align: center;
+        box-shadow: none;
+      }
+
+      .card-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <h2>Capstone App</h2>
+    <p>Explore responsive design, JS interactivity, and form validation – all in one place.</p>
+  </aside>
+
+  <div class="content">
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+
+    <div class="card-container">
+      <!-- Lazy Image -->
+      <div class="card">
+        <h3>Lazy Loaded Image</h3>
+        <img src="https://picsum.photos/400/200?random=2" loading="lazy" alt="Lazy Image">
+        <p>Images load only when needed, improving page speed.</p>
+      </div>
+
+      <!-- Counter -->
+      <div class="card">
+        <h3>Counter</h3>
+        <p>Count: <span id="counter">0</span></p>
+        <button onclick="increaseCount()">Increase</button>
+      </div>
+
+      <!-- Form -->
+      <div class="card">
+        <h3>Contact Us</h3>
+        <form onsubmit="return checkForm()">
+          <input type="text" id="username" placeholder="Name">
+          <input type="email" id="useremail" placeholder="Email">
+          <button type="submit">Send</button>
+        </form>
+      </div>
+
+      <!-- Responsive Info -->
+      <div class="card">
+        <h3>Responsive Test</h3>
+        <p>Try resizing this page or open on mobile to see flexible layout.</p>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Capstone App - Built with HTML, CSS, JS
+    </footer>
+  </div>
+
+  <script>
+    let count = 0;
+    function increaseCount() {
+      count++;
+      document.getElementById("counter").innerText = count;
+    }
+
+    function checkForm() {
+      const name = document.getElementById("username").value.trim();
+      const email = document.getElementById("useremail").value.trim();
+      if (name === "" || email === "") {
+        alert("Please enter both name and email.");
+        return false;
+      }
+      alert("Thanks for submitting!");
+      return true;
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+</body>
+</html>
